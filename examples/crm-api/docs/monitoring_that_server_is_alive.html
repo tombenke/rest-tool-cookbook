@@ -1,0 +1,411 @@
+<html>
+<head>
+<link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+<!--[if lt IE 8]>
+    <link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<![endif]-->
+<script src="js/jquery-1.9.0/jquery-1.9.0.min.js"></script>
+<script src="js/restapidoc.js"></script>
+
+</head>
+<body class="bp two-col">
+<div id="container">
+
+<!-- Begin Header -->
+<div id="header">
+    <h1>crm-api - v0.0.0</h1>
+</div>
+<!-- End of header -->
+
+<!-- Begin content -->
+<div id="content">
+
+<!-- Begin Service -->
+<div class="serviceNameBox">
+    <h2>Monitoring that server is alive</h2>
+</div>
+
+<p>It is a very simple service, 
+which makes possible to monitor that the server is running
+and is able to answer HTTP requests
+</p>
+
+<!-- Begin Methods -->
+<div class="">
+    <h3>Methods:</h3>
+</div>
+<div id="methods">
+
+    
+<!-- Begin Method -->
+<div class="block-container">
+    <div id="methodHeader" class="block-title">
+        <div class="methodNameBox">
+            <div class="method">GET</div>
+        </div>
+
+        <div class="urlPatternBox">
+            <div class="urlPatterns">/monitoring/isAlive</div>
+        </div>
+    </div>
+    <div id="method">
+        <p>Is server alive?</p>
+        <p></p>
+        
+<!-- Begin Request -->
+<div class="shady-block-container">
+    <div class="block-title">
+        <h4>Request:</4>
+        </div>
+    <div id="request">
+    
+
+        <div class="block-container">
+            <div class="block-title">
+                <h5>Parameters:</h5>
+            </div>
+            <div id="parameters">
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>kind</th>
+                        <th>type</th>
+                        <th>default</th>
+                        <th>required</th>
+                        <th>summary</th>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+
+        <p>Validation schema: 
+            <a href="/services/monitoring/isAlive/"></a></p>
+        <p>mock body: 
+            <a href="/services/monitoring/isAlive/"></a></p>
+
+        
+<!-- Begin Headers -->
+<div class="block-container">
+    <div class="block-title">
+        <h5>Headers:</h5>
+    </div>
+    <div id="headers">
+    <table>
+        <tr>
+            <th>Field name</th>
+            <th>Value</th>
+        </tr>
+    
+        <tr>
+            <td>Accept</td>
+            <td>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</td>
+        </tr>
+    
+        <tr>
+            <td>Accept-Encoding</td>
+            <td>gzip, deflate</td>
+        </tr>
+    
+    </table>
+    </div>
+</div>
+<!-- End of Headers -->
+
+
+        
+<!-- Begin Cookies -->
+<div class="block-container">
+    <div class="block-title">
+        <h5>Cookies:</h5>
+    </div>
+    <div id="cookies">
+        <table>
+            <tr>
+                <th>Field name</th>
+                <th>Value</th>
+            </tr>
+        
+        </table>
+    </div>
+</div>
+<!-- End of Cookies -->
+
+
+    
+    </div>
+</div>
+<!-- End of Request -->
+
+        
+<!-- Begin Responses -->
+<div class="shady-block-container">
+    <div class="block-title">
+        <h4>Responses:</h4>
+    </div>
+    <div id="responses">
+    
+
+        <!-- Begin Response -->
+        <div class="block-container">
+            <div class="block-title">
+                <h5>200 - Successful execution</h5>
+            </div>
+            <div id="response">
+                <p>Validation schema: 
+                    <a href="/services/monitoring/isAlive/"></a></p>
+                <p>mock body: 
+                    <a href="/services/monitoring/isAlive/"></a></p>
+
+                
+<!-- Begin Headers -->
+<div class="block-container">
+    <div class="block-title">
+        <h5>Headers:</h5>
+    </div>
+    <div id="headers">
+    <table>
+        <tr>
+            <th>Field name</th>
+            <th>Value</th>
+        </tr>
+    
+        <tr>
+            <td>Content-Type</td>
+            <td>application/json</td>
+        </tr>
+    
+        <tr>
+            <td>X-Application-API-Version</td>
+            <td>v0.0.0</td>
+        </tr>
+    
+    </table>
+    </div>
+</div>
+<!-- End of Headers -->
+
+
+                
+<!-- Begin Cookies -->
+<div class="block-container">
+    <div class="block-title">
+        <h5>Cookies:</h5>
+    </div>
+    <div id="cookies">
+        <table>
+            <tr>
+                <th>Field name</th>
+                <th>Value</th>
+            </tr>
+        
+        </table>
+    </div>
+</div>
+<!-- End of Cookies -->
+
+            </div>
+        </div>
+        <!-- End of Response -->
+
+    
+    </div>
+</div>
+<!-- End of Responses -->
+
+        
+<!-- Begin Test Cases -->
+<div class="shady-block-container">
+    <div class="block-title">
+        <h4>Test Cases:</h4>
+    </div>
+    <div id="responses">
+    
+
+        <!-- Begin Test Case -->
+        <div class="block-container">
+            <div class="block-title">
+                <h5>Get Monitoring Is Alive</h5>
+            </div>
+            <div>
+                <div class="urlFont">/monitoring/isAlive</div>
+                <p>Successfully checks if server is alive</p>
+
+                <!-- Begin Request -->
+                <div class="shady-block-container">
+                    <div class="block-title">
+                        <h4>Request:</4>
+                    </div>
+                    <div id="request">
+                    
+                        <p>Validation schema: 
+                            <a href="/services/monitoring/isAlive/"></a></p>
+                        <p>mock body: 
+                            <a href="/services/monitoring/isAlive/"></a></p>
+                    
+<!-- Begin Headers -->
+<div class="block-container">
+    <div class="block-title">
+        <h5>Headers:</h5>
+    </div>
+    <div id="headers">
+    <table>
+        <tr>
+            <th>Field name</th>
+            <th>Value</th>
+        </tr>
+    
+        <tr>
+            <td>Accept</td>
+            <td>text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</td>
+        </tr>
+    
+        <tr>
+            <td>Accept-Encoding</td>
+            <td>gzip, deflate</td>
+        </tr>
+    
+    </table>
+    </div>
+</div>
+<!-- End of Headers -->
+
+                    
+<!-- Begin Cookies -->
+<div class="block-container">
+    <div class="block-title">
+        <h5>Cookies:</h5>
+    </div>
+    <div id="cookies">
+        <table>
+            <tr>
+                <th>Field name</th>
+                <th>Value</th>
+            </tr>
+        
+        </table>
+    </div>
+</div>
+<!-- End of Cookies -->
+
+                    
+                    </div>
+                </div>
+                <!-- End of Request -->
+
+                <!-- Begin Response -->
+                <div class="shady-block-container">
+                    <div class="block-title">
+                        <h4>Response:</4>
+                    </div>
+                    <div id="response">
+                    
+                        <p>Validation schema: 
+                            <a href="/services/monitoring/isAlive/"></a></p>
+                        <p>mock body: 
+                            <a href="/services/monitoring/isAlive/"></a></p>
+
+                    
+<!-- Begin Headers -->
+<div class="block-container">
+    <div class="block-title">
+        <h5>Headers:</h5>
+    </div>
+    <div id="headers">
+    <table>
+        <tr>
+            <th>Field name</th>
+            <th>Value</th>
+        </tr>
+    
+        <tr>
+            <td>Content-Type</td>
+            <td>application/json</td>
+        </tr>
+    
+        <tr>
+            <td>X-Application-API-Version</td>
+            <td>v0.0.0</td>
+        </tr>
+    
+    </table>
+    </div>
+</div>
+<!-- End of Headers -->
+
+                    
+<!-- Begin Cookies -->
+<div class="block-container">
+    <div class="block-title">
+        <h5>Cookies:</h5>
+    </div>
+    <div id="cookies">
+        <table>
+            <tr>
+                <th>Field name</th>
+                <th>Value</th>
+            </tr>
+        
+        </table>
+    </div>
+</div>
+<!-- End of Cookies -->
+
+                    
+                    </div>
+                </div>
+                <!-- End of Response -->
+            </div>
+
+        </div>
+        <!-- End of Test Case -->
+
+    
+    </div>
+</div>
+<!-- End of Test Cases -->
+
+    </div>
+</div>
+<!-- End of Method -->
+
+
+</div>
+<!-- End of methods -->
+<!-- End of Service -->
+
+</div>
+<!-- End of content -->
+
+<!-- Begin sidebar -->
+<div id="sidebar">
+
+<!-- Begin ServicesMenu -->
+<div id="servicesMenu">
+    <div class="">Services:</div>
+    <ul>
+    
+        <li><a href="monitoring_that_server_is_alive.html">Monitoring that server is alive</a></li>
+    
+        <li><a href="customers_service.html">Customers service</a></li>
+    
+        <li><a href="customer_service.html">Customer service</a></li>
+    
+    </ul>
+</div>
+<!-- End of ServicesMenu -->
+
+</div>
+<!-- End of sidebar -->
+
+<!-- Begin Footer -->
+<div id="footer">
+    Generated by <a href="https://github.com/tombenke/restapi">the RestApi utility</a>. Author:<a href="https://github.com/tombenke">TomBenke</a>
+</div>
+<!-- End of footer -->
+
+</div>
+<!-- End of container -->
+</body>
+</html>

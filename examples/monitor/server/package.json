@@ -1,0 +1,13 @@
+{
+    "name" : "monitor-mockServer",
+    "version" : "0.1.0",
+    "private" : true,
+
+    "dependencies" : {
+        "express" : ">=3.0.0",
+        "request" : "*",
+        "http-proxy": "*",
+        "js-yaml" : "*",
+        "should" : "2.0.2"
+    }
+}

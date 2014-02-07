@@ -1,0 +1,41 @@
+{
+  "name": "rest-tool-cookbook",
+  "description": "Cookbook for the rest-tool",
+  "version": "0.1.0",
+  "tags": [
+    "rest",
+    "restful",
+    "api",
+    "docs",
+    "util",
+    "utility",
+    "rest-tool",
+    "cookbook",
+    "examples"
+  ],
+  "author": {
+    "name": "Tamás Benke",
+    "email": "tombenke@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/tombenke/rest-tool-cookbook.git"
+  },
+  "bin": {
+  },
+  "dependencies": {
+    "commander": "*",
+    "wrench": "*",
+    "proper": "git+https://github.com/tombenke/proper.git#v0.2.0",
+    "js-yaml": "*",
+    "should": "2.0.2",
+    "mu2": "*",
+    "mocha": "*",
+    "superagent": "*",
+    "marked": "~0.3.1",
+
+    "express" : "3.3.6",
+    "request" : "*",
+    "http-proxy": "0.10.3"
+  }
+}

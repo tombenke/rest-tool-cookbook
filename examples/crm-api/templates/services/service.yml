@@ -1,0 +1,105 @@
+name: # The name of the service
+
+description: # A detailed description of the service
+             # markdown markup is also can be used
+
+urlPattern: # The URL pattern the service provides the access to the resource
+            # for example: /monitoring/isAlive
+
+style:  # The stlye of the service.
+        # Possible options: OPERATION | RESOURCE
+        # OPERATION : Methods might used as RPC-like operation
+        # RESOURCE  : This is a fully REST compliant
+
+methods: # This block contains the detailed specification
+         # of several methods provided to this URL.
+         # The currently supported methods: GET, POST, PUT, DELETE
+
+    GET: # The GET Method specification
+
+        summary: # A short summary of what the method does
+
+        notes: # Some additional details of what the method does
+
+        implementation: # The name of the service method implementation.
+                        # in the following format: 'module.function'.
+                        # for example: monitoring.isAlive
+
+        request: # The detailed specification of the GET request
+
+            parameters: [] # TBD.
+
+            cookies: [] # TBD.
+
+            headers: # The list of request header specifications
+
+                -   # A header specification
+                    field: # The name of the header field.
+                           # For example: Accept
+
+                    content: # The content of the header field.
+                             # For example: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+
+        responses: # The detailed specification of the GET responses.
+                   # It is a list of possible responses to the GET request.
+                   # At least the '200 OK' response must be defined.
+                   # See also the HTTP protocol return codes.
+            -
+                name: OK # The name of the response
+
+                statusCode: 200 # The status-code of the response
+
+                reason: Successful execution # The reason, which belongs to the status -ode
+
+                # validationSchema: getMonitoringIsAlive-responseBody-validationSchema.json
+
+                cookies: [] # TBD.
+
+                headers:
+                    -
+                        field: Content-Type
+                        content: application/json
+                    -
+                        field: X-Application-API-Version
+                        content: v0.0.0
+
+                # mockBody: getMonitoringIsAlive-responseBody.json
+
+        testCases:
+            -
+                name: Get Monitoring Is Alive
+                description: Successfully checks if server is alive
+                url: /monitoring/isAlive
+                template: testGetMethod.mustache
+                request:
+                    cookies: []
+                    headers:
+                        -
+                            field: Accept
+                            content: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+                        -
+                            field: Accept-Encoding
+                            content: "gzip, deflate"
+                response:
+                    statusCode: 200
+                    cookies: []
+                    headers:
+                        -
+                            field: Content-Type
+                            content: application/json
+                        -
+                            field: X-Application-API-Version
+                            content: v0.0.0
+                    # validationSchema: getMonitoringIsAlive-responseBody-validationSchema.json
+
+    POST: # The POST method specification 
+          # see also the GET method's properties
+          # ...
+
+    PUT: # The PUT method specification 
+         # see also the GET method's properties
+         # ...
+
+    DELETE: # The DELETE method specification 
+            # see also the GET method's properties
+            # ...
