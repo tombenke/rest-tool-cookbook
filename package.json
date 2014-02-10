@@ -25,7 +25,7 @@
   "dependencies": {
     "commander": "*",
     "wrench": "*",
-    "proper": "0.2.0",
+    "proper": "0.5.0",
     "rest-tool-common": "0.2.2",
     "js-yaml": "*",
     "should": "2.0.2",
