@@ -5,7 +5,7 @@ var request = require('superagent'),
 describe('{{description}}', function() {
 	var agent = request.agent();
 
-	it('should successfully {{description}}', function(done) {
+	it('should {{description}}', function(done) {
 		agent
 			.get('{{baseUrl}}{{url}}')
 			{{#loginCredentials}}.auth('{{user}}', '{{pass}}'){{/loginCredentials}}

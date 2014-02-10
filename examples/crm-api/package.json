@@ -1,8 +1,8 @@
 {
-  "name": "crm-api",
+  "name": "t100",
   "description": " API specification, test cases and mock server for the RESTful services of the CRM project",
   "version": "0.0.2",
-  "author": "TBD: author info",
+  "author": "TBD.",
   "private": true,
   "scripts": {
     "test": "make test"
@@ -11,11 +11,12 @@
   "dependencies": {
     "should": "latest",
     "superagent": "0.15.x",
+    "rest-tool-common": "0.2.1",
     "mu2": "latest",
     "mocha": "latest",
     "jayschema": "0.2.x",
     "js-yaml": "latest",
     "express": "3.x"
   },
-  "license": "MIT"
+  "license": "TBD."
 }

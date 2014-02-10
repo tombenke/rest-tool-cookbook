@@ -5,9 +5,9 @@ var request = require('superagent'),
 describe('Succesfully creates a new customer', function() {
 	var agent = request.agent();
 
-	it('should successfully Succesfully creates a new customer', function(done) {
+	it('should Succesfully creates a new customer', function(done) {
 		var path = require('path');
-		var body = require(path.resolve('services/customers','postCustomer-responseBody.json'));
+		var body = require(path.resolve('services/customers', 'postCustomer-responseBody.json'));
 		agent
 			.post('http://localhost:3007/rest/customers')
 			.auth('username', 'password')

@@ -1,10 +1,12 @@
+/*jshint node: true */
+"use strict";
+
 var fs = require( 'fs' );
 var express = require( 'express' );
 var request = require( 'request' );
 var api = require('./api.js');
 var monitoring = require('./monitoring.js');
-// var services = require('restapi').services;
-var services = require('../../../index.js').services;
+var services = require('rest-tool-common').services;
 var httpProxy = require('http-proxy');
 var proxy = new httpProxy.RoutingProxy();
 
@@ -36,7 +38,7 @@ function apiProxy(host, port) {
         } else {
             next();
         }
-    }
+    };
 }
 
 var server = module.exports = express();
@@ -96,30 +98,29 @@ var defaultServiceCall = function (request, response, serviceDesc) {
     response.header( 'Content-Type', 'application/json' );
     // TODO: Use Headers and Cookies from serviceDesc
     writeResponse(response, services.getMockResponseBody(request.method, serviceDesc ) || serviceDesc);
-}
+};
 
 var reformatUrlPattern = function (urlPattern) {
     // TODO: Replace {parameter} to :parameter
     var resultPattern = urlPattern.replace(/{/gi, ":").replace(/}/gi, "").toString();
     console.log(resultPattern);
     return resultPattern;
-}
+};
 
 // Setup the services for mocking
 function registerServiceMethod(serviceDesc, method) {
+    console.log('register service ' + method + ' ' + serviceDesc.urlPattern);
     var methodDesc = serviceDesc.methods[method];
-    var urlPattern = serviceDesc.urlPattern;
     var implementation = eval( serviceDesc.methods[method].implementation ) || defaultServiceCall;
-    console.log('register service ' + method + ' ' + urlPattern);
-    server[method.toLowerCase()](servicesConfig.serviceUrlPrefix + reformatUrlPattern(urlPattern), function(request, response) {
+    server[method.toLowerCase()](servicesConfig.serviceUrlPrefix + reformatUrlPattern(serviceDesc.urlPattern), function(request, response) {
         implementation(request, response, serviceDesc);
     });
 }
 
-for ( service in allServices ) {
+for ( var service in allServices ) {
     if ( allServices.hasOwnProperty(service) ) {
         var serviceDesc = allServices[service];
-        for ( method in allServices[service].methods ) {
+        for ( var method in allServices[service].methods ) {
             if ( serviceDesc.methods.hasOwnProperty(method) ) {
                 registerServiceMethod(serviceDesc, method);
             }

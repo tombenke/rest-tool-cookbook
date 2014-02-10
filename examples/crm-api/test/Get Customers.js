@@ -5,7 +5,7 @@ var request = require('superagent'),
 describe('Successfully retrieves all the customers', function() {
 	var agent = request.agent();
 
-	it('should successfully Successfully retrieves all the customers', function(done) {
+	it('should Successfully retrieves all the customers', function(done) {
 		agent
 			.get('http://localhost:3007/rest/customers')
 			.auth('username', 'password')

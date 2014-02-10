@@ -7,7 +7,7 @@ describe('{{description}}', function() {
 
     it('should {{description}}', function(done) {
         var path = require('path');
-        var body = require(path.resolve('{{contentPath}}','{{#request}}{{body}}{{/request}}'));
+        var body = require(path.resolve('{{contentPath}}', '{{#request}}{{body}}{{/request}}'));
         agent
             .put('{{baseUrl}}{{url}}')
             {{#loginCredentials}}.auth('{{user}}', '{{pass}}'){{/loginCredentials}}
