@@ -5,7 +5,7 @@ var request = require('superagent'),
 describe('Successfully checks if server is alive', function() {
 	var agent = request.agent();
 
-	it('should successfully Successfully checks if server is alive', function(done) {
+	it('should Successfully checks if server is alive', function(done) {
 		agent
 			.get('http://localhost:3007/rest/monitoring/isAlive')
 			.auth('username', 'password')

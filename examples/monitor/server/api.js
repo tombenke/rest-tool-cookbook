@@ -4,8 +4,7 @@
  * To change the first part of this file, you should modify the template used by the tool.
  * The template can be found here: <project-root>/templates/server/api.js.mustache
  */
-// var services = require('restapi').services;
-var services = require('../../../index.js').services;
+var services = require('rest-tool-common').services;
 
 var server = require('./server.js');
 
