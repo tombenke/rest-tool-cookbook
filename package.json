@@ -26,7 +26,8 @@
   "dependencies": {
     "commander": "*",
     "wrench": "*",
-    "proper": "git+https://github.com/tombenke/proper.git#v0.2.0",
+    "proper": "0.2.0",
+    "rest-tool-common": "0.2.2",
     "js-yaml": "*",
     "should": "2.0.2",
     "mu2": "*",
