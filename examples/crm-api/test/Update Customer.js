@@ -7,7 +7,7 @@ describe('Succesfully updates a customer', function() {
 
     it('should Succesfully updates a customer', function(done) {
         var path = require('path');
-        var body = require(path.resolve('services/customers/customer','putCustomer-requestBody.json'));
+        var body = require(path.resolve('services/customers/customer', 'putCustomer-requestBody.json'));
         agent
             .put('http://localhost:3007/rest/customers/1')
             .auth('username', 'password')
