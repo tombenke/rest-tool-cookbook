@@ -4,8 +4,8 @@ style: RESOURCE
 urlPattern: /customers
 methods:
     GET:
-        summary: list all the customers
-        notes:
+        summary: List all the customers
+        notes: List all the customers
         implementation: api.getCustomers
         request:
             parameters: []
@@ -20,8 +20,8 @@ methods:
         responses:
             -
                 name: OK
-                statusCode: 200
-                reason: Successful execution
+                statusCode: &OkStatusCode 200
+                reason: &OkReason Successful execution
                 # validationSchema: getCustomers-responseBody-validationSchema.json
                 cookies: []
                 headers:
@@ -51,7 +51,9 @@ methods:
                             field: "Accept-Encoding"
                             content: "gzip, deflate"
                 response:
-                    statusCode: 200
+                    name: OK
+                    statusCode: *OkStatusCode
+                    reason: *OkReason
                     cookies: []
                     headers:
                         -
@@ -61,7 +63,7 @@ methods:
 
     POST:
         summary: Create a new customer
-        notes:
+        notes: Create a new customer
         implementation: api.postCustomer
         urlPattern: /customers
         request:
@@ -77,8 +79,8 @@ methods:
         responses:
             -
                 name: OK
-                statusCode: 200
-                reason: Successful execution
+                statusCode: *OkStatusCode
+                reason: *OkReason
                 # validationSchema: getCustomers-responseBody-validationSchema.json
                 cookies: []
                 headers:
@@ -109,7 +111,9 @@ methods:
                             content: "gzip, deflate"
                     body: postCustomer-responseBody.json
                 response:
-                    statusCode: 200
+                    name: OK
+                    statusCode: *OkStatusCode
+                    reason: *OkReason
                     cookies: []
                     headers:
                         -

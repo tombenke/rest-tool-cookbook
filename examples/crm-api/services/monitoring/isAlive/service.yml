@@ -23,8 +23,8 @@ methods:
         responses:
             -
                 name: OK
-                statusCode: 200
-                reason: Successful execution
+                statusCode: &OkStatusCode 200
+                reason: &OkReason Successful execution
                 # validationSchema: getMonitoringIsAlive-responseBody-validationSchema.json
                 cookies: []
                 headers:
@@ -42,6 +42,7 @@ methods:
                 url: /monitoring/isAlive
                 template: testGetMethod.mustache
                 request:
+                    parameters: []
                     cookies: []
                     headers:
                         -
@@ -51,7 +52,9 @@ methods:
                             field: Accept-Encoding
                             content: "gzip, deflate"
                 response:
-                    statusCode: 200
+                    name: OK
+                    statusCode: *OkStatusCode
+                    reason: *OkReason
                     cookies: []
                     headers:
                         -
