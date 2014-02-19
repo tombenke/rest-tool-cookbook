@@ -1,0 +1,122 @@
+name: Customers service
+description: This is the description of the service to customer collection resources
+style: RESOURCE
+urlPattern: /customers
+methods:
+    GET:
+        summary: List all the customers
+        notes: List all the customers
+        implementation: api.getCustomers
+        request:
+            parameters: []
+            cookies: []
+            headers:
+                -
+                    field: Accept
+                    content: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+                -
+                    field: Accept-Encoding
+                    content: "gzip, deflate"
+        responses:
+            -
+                name: OK
+                statusCode: &OkStatusCode 200
+                reason: &OkReason Successful execution
+                # validationSchema: getCustomers-responseBody-validationSchema.json
+                cookies: []
+                headers:
+                    -
+                        field: Content-Type
+                        content: application/json
+                    -
+                        field: X-Application-Version
+                        content: v0.4 # This value must be parametric
+                    -
+                        field: X-Application-API-Version
+                        content: v0.1 # This value must be parametric
+                mockBody: getCustomers-responseBody.json
+        testCases:
+            -
+                name: Get Customers
+                description: Successfully retrieves all the customers
+                url: /customers
+                template: testGetMethod.mustache
+                request:
+                    cookies: []
+                    headers:
+                        -
+                            field : "Accept"
+                            content: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+                        -
+                            field: "Accept-Encoding"
+                            content: "gzip, deflate"
+                response:
+                    name: OK
+                    statusCode: *OkStatusCode
+                    reason: *OkReason
+                    cookies: []
+                    headers:
+                        -
+                            field: "Content-Type"
+                            content: "application/json"
+                    validationSchema: customerList.json
+
+    POST:
+        summary: Create a new customer
+        notes: Create a new customer
+        implementation: api.postCustomer
+        urlPattern: /customers
+        request:
+            parameters: []
+            cookies: []
+            headers:
+                -
+                    field: Accept
+                    content: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+                -
+                    field: Accept-Encoding
+                    content: "gzip, deflate"
+        responses:
+            -
+                name: OK
+                statusCode: *OkStatusCode
+                reason: *OkReason
+                # validationSchema: getCustomers-responseBody-validationSchema.json
+                cookies: []
+                headers:
+                    -
+                        field: Content-Type
+                        content: application/json
+                    -
+                        field: X-Application-Version
+                        content: v0.4 # This value must be parametric
+                    -
+                        field: X-Application-API-Version
+                        content: v0.1 # This value must be parametric
+                # mockBody: postCustomer-responseBody.json
+        testCases:
+            -
+                name: Create Customer
+                description: Succesfully creates a new customer
+                url: /customers
+                template: testPostMethod.mustache
+                request:
+                    cookies: []
+                    headers:
+                        -
+                            field : "Accept"
+                            content: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+                        -
+                            field: "Accept-Encoding"
+                            content: "gzip, deflate"
+                    body: postCustomer-responseBody.json
+                response:
+                    name: OK
+                    statusCode: *OkStatusCode
+                    reason: *OkReason
+                    cookies: []
+                    headers:
+                        -
+                            field: "Content-Type"
+                            content: "application/json"
+                    validationSchema: createdCustomer.json

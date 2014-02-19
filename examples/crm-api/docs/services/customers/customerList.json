@@ -1,0 +1,28 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "Customer List",
+	"description": "The list of the customers",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"properties": {
+			"id": {
+				"description": "The unique id of the customer",
+				"type": "integer"
+			},
+			"name": {
+				"description": "The name of the customer",
+				"type": "string"
+			},
+			"tags": {
+				"type": "array",
+				"items": {
+					"type": "string"
+				},
+				"uniqueItems": true
+			}
+		},
+		"required": ["id", "name"]
+	}
+}
+	
