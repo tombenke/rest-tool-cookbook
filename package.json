@@ -1,7 +1,7 @@
 {
   "name": "rest-tool-cookbook",
   "description": "Cookbook for the rest-tool",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "tags": [
     "rest",
     "restful",
