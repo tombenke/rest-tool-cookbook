@@ -83,6 +83,7 @@ server.all("*", accessLogger, restrict);
 
 function writeHeader(response) {
     response.header( 'Content-Type', 'application/json' );
+    response.header( 'X-pmd-api-API-Version', servicesConfig.apiVersion );
 }
 exports.writeHeader = writeHeader;
 

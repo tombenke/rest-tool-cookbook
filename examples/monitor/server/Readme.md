@@ -30,11 +30,13 @@ To start the server, execute the following command in the `server` folder:
 When the server starts, you should see something like this:
 
     $ node app.js 
-    Express server listening on port 3007 in development mode
+    Express server listening on port  in development mode
 
 
 # Server configuration
 
 The `config.yml` file contains the configuration parameters for the server.
 
-TODO: Describe the config parameters.
+## Further readings
+
+To learn more about the server and its configuration, visit the [homepage](http://tombenke.github.io/rest-tool/) of the project, or directly the [server documentation](http://tombenke.github.io/rest-tool/docs/server.html) pages.
