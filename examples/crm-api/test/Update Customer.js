@@ -7,7 +7,7 @@ describe('Succesfully updates a customer', function() {
 
     it('should Succesfully updates a customer', function(done) {
         var path = require('path');
-        var body = require(path.resolve('services/customers/customer','putCustomer-requestBody.json'));
+        var body = require(path.resolve('services/customers/customer', 'putCustomer-requestBody.json'));
         agent
             .put('http://localhost:3007/rest/customers/1')
             .auth('username', 'password')
@@ -26,7 +26,15 @@ describe('Succesfully updates a customer', function() {
                 res.should.have.property('body');
                 // FIXME add further checks if appropriate
                 
-                done();
+                var JaySchema = require('jayschema');
+                var js = new JaySchema();
+                var schema = require(path.resolve('services/customers/customer', 'putCustomer-responseBody-validationSchema.json'));
+                js.validate(res.body, schema, function(errs) {
+                    should.not.exist(errs);
+                    done();
+                });
+                
+                
             });
     });
 });

@@ -5,7 +5,7 @@ var request = require('superagent'),
 describe('Successfully retrieves all the customers', function() {
 	var agent = request.agent();
 
-	it('should successfully Successfully retrieves all the customers', function(done) {
+	it('should Successfully retrieves all the customers', function(done) {
 		agent
 			.get('http://localhost:3007/rest/customers')
 			.auth('username', 'password')
@@ -16,7 +16,16 @@ describe('Successfully retrieves all the customers', function() {
 				res.should.have.property('body');
 				// FIXME add further checks if appropriate
 				
-				done();
+				var path = require('path');
+				var JaySchema = require('jayschema');
+				var js = new JaySchema(JaySchema.loaders.http);
+				var schema = require(path.resolve('services/customers', 'getCustomers-responseBody-validationschema.json'));
+				js.validate(res.body, schema, function(errs) {
+					should.not.exist(errs);
+					done();
+				});
+				
+				
 			});
 	});
 });

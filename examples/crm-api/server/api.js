@@ -4,8 +4,7 @@
  * To change the first part of this file, you should modify the template used by the tool.
  * The template can be found here: <project-root>/templates/server/api.js.mustache
  */
-//var services = require('restapi').services;
-var services = require('../../../index.js').services;
+var services = require('rest-tool-common').services;
 
 var server = require('./server.js');
 
@@ -17,43 +16,3 @@ var server = require('./server.js');
 
 // END mock method implementations
 //=============================================================================
-
-exports.getCustomers = function (req, res, serviceDesc) {
-    res.header('Content-Type', 'application/json');
-    res.header('X-Application-Version', 'v0.4');
-    res.header('X-Application-API-Version', 'v0.1');
-    res.send([
-        {id: 1, name: 'John Doe', tags: ["picky"]},
-        {id: 2, name: 'Jean Doe', tags: ["nice", "sexy"]}
-    ]);
-};
-
-exports.postCustomer = function (req, res, serviceDesc) {
-    res.header('Content-Type', 'application/json');
-    res.header('X-Application-Version', 'v0.4');
-    res.header('X-Application-API-Version', 'v0.1');
-    res.send({id: 1, name: 'John Doe', tags: ["picky"]});
-};
-
-exports.getCustomer = function (req, res, serviceDesc) {
-    res.header('Content-Type', 'application/json');
-    res.header('X-Application-Version', 'v0.4');
-    res.header('X-Application-API-Version', 'v0.1');
-    res.send({id: 1, name: 'John Doe', tags: ["picky"] });
-};
-
-exports.putCustomer = function (req, res, serviceDesc) {
-    var i = parseInt(req.params.id, 10);
-    res.header('Content-Type', 'application/json');
-    res.header('X-Application-Version', 'v0.4');
-    res.header('X-Application-API-Version', 'v0.1');
-    res.send({id: i, name: req.body.name, tags: req.body.tags});
-};
-
-exports.deleteCustomer = function (req, res, serviceDesc) {
-    var i = parseInt(req.params.id, 10);
-    res.header('Content-Type', 'application/json');
-    res.header('X-Application-Version', 'v0.4');
-    res.header('X-Application-API-Version', 'v0.1');
-    res.send(200);
-};

@@ -1,0 +1,17 @@
+projectName: basics
+apiVersion: v0.0.0
+author: TBD.
+licence: TBD.
+serviceUrlPrefix: /rest
+servicePort: 3007
+baseUrl: http://localhost:3007/rest
+servicesRoot: services
+services:
+    - /monitoring/isAlive
+    # To add new services, put here the path of the directory that contains the service.yml
+
+
+loginCredentials:
+    user: username
+    pass: password
+

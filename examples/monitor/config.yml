@@ -1,4 +1,4 @@
-projectName: pmd-api
+projectName: rest-tool-cookbook/examples/monitor
 apiVersion: v0.0.0
 author: TBD.
 licence: TBD.
@@ -10,6 +10,8 @@ services:
     - /monitoring/isAlive
     # To add new services, put here the path of the directory that contains the service.yml
 
+
 loginCredentials:
     user: username
     pass: password
+

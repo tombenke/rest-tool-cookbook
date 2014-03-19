@@ -1,0 +1,14 @@
+{
+    "name" : "basics-mockServer",
+    "version" : "0.1.0",
+    "private" : true,
+
+    "dependencies" : {
+        "express" : "3.3.6",
+        "request" : "*",
+        "rest-tool-common": "0.3.8",
+        "http-proxy": "0.10.3",
+        "js-yaml" : "*",
+        "should" : "*"
+    }
+}

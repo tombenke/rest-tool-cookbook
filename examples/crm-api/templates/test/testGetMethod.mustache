@@ -5,7 +5,7 @@ var request = require('superagent'),
 describe('{{description}}', function() {
 	var agent = request.agent();
 
-	it('should successfully {{description}}', function(done) {
+	it('should {{description}}', function(done) {
 		agent
 			.get('{{baseUrl}}{{url}}')
 			{{#loginCredentials}}.auth('{{user}}', '{{pass}}'){{/loginCredentials}}
@@ -15,17 +15,17 @@ describe('{{description}}', function() {
 				res.should.have.status(200);
 				res.should.have.property('body');
 				// FIXME add further checks if appropriate
-				{{#jsonschema}}
+				{{#response.validationSchema}}
 				var path = require('path');
 				var JaySchema = require('jayschema');
 				var js = new JaySchema(JaySchema.loaders.http);
-				var schema = require(path.join(__dirname, '..', 'schemas', '{{jsonschema}}.json'));
+				var schema = require(path.resolve('{{contentPath}}', '{{response.validationSchema}}'));
 				js.validate(res.body, schema, function(errs) {
 					should.not.exist(errs);
 					done();
 				});
-				{{/jsonschema}}
-				{{^jsonschema}}done();{{/jsonschema}}
+				{{/response.validationSchema}}
+				{{^response.validationSchema}}done();{{/response.validationSchema}}
 			});
 	});
 });
