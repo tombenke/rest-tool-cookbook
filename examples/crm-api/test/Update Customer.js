@@ -26,7 +26,15 @@ describe('Succesfully updates a customer', function() {
                 res.should.have.property('body');
                 // FIXME add further checks if appropriate
                 
-                done();
+                var JaySchema = require('jayschema');
+                var js = new JaySchema();
+                var schema = require(path.resolve('services/customers/customer', 'putCustomer-responseBody-validationSchema.json'));
+                js.validate(res.body, schema, function(errs) {
+                    should.not.exist(errs);
+                    done();
+                });
+                
+                
             });
     });
 });

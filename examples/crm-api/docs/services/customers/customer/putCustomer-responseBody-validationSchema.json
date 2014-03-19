@@ -1,0 +1,24 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "New Customer",
+	"description": "The newly created customer",
+	"type": "object",
+	"properties": {
+		"id": {
+			"description": "The unique id of the customer",
+			"type": "integer"
+		},
+		"name": {
+			"description": "The name of the customer",
+			"type": "string"
+		},
+		"tags": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"uniqueItems": true
+		}
+	},
+	"required": ["id", "name"]
+}

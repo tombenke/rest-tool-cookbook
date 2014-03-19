@@ -22,7 +22,6 @@ methods:
                 name: OK
                 statusCode: &OkStatusCode 200
                 reason: &OkReason Successful execution
-                # validationSchema: getCustomers-responseBody-validationSchema.json
                 cookies: []
                 headers:
                     -
@@ -59,12 +58,11 @@ methods:
                         -
                             field: "Content-Type"
                             content: "application/json"
-                    validationSchema: customerList.json
+                    validationSchema: getCustomers-responseBody-validationschema.json
 
     POST:
         summary: Create a new customer
         notes: Create a new customer
-        implementation: api.postCustomer
         urlPattern: /customers
         request:
             parameters: []
@@ -81,7 +79,6 @@ methods:
                 name: OK
                 statusCode: *OkStatusCode
                 reason: *OkReason
-                # validationSchema: getCustomers-responseBody-validationSchema.json
                 cookies: []
                 headers:
                     -
@@ -93,7 +90,7 @@ methods:
                     -
                         field: X-Application-API-Version
                         content: v0.1 # This value must be parametric
-                # mockBody: postCustomer-responseBody.json
+                mockBody: postCustomer-responseBody.json
         testCases:
             -
                 name: Create Customer
@@ -119,4 +116,4 @@ methods:
                         -
                             field: "Content-Type"
                             content: "application/json"
-                    validationSchema: createdCustomer.json
+                    validationSchema: postCustomer-responseBody-validationSchema.json

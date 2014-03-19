@@ -162,7 +162,7 @@ methods:
                     -
                         field: X-Application-API-Version
                         content: v0.1 # This value must be parametric
-                # mockBody: putCustomer-responseBody.json
+                mockBody: putCustomer-responseBody.json
         testCases:
             -
                 name: Update Customer
@@ -188,4 +188,4 @@ methods:
                         -
                             field: "Content-Type"
                             content: "application/json"
-                    # validationSchema: customer.json
+                    validationSchema: putCustomer-responseBody-validationSchema.json

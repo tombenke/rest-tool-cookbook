@@ -19,7 +19,15 @@ describe('Succesfully creates a new customer', function() {
 				res.should.have.property('body');
 				// FIXME add further checks if appropriate
 				
-				done();
+				var JaySchema = require('jayschema');
+				var js = new JaySchema(JaySchema.loaders.http);
+				var schema = require(path.resolve('services/customers', 'postCustomer-responseBody-validationSchema.json'));
+				js.validate(res.body, schema, function(errs) {
+					should.not.exist(errs);
+					done();
+				});
+				
+				
 			});
 	});
 });
