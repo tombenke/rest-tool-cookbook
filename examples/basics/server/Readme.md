@@ -30,7 +30,7 @@ To start the server, execute the following command in the `server` folder:
 When the server starts, you should see something like this:
 
     $ node app.js 
-    Express server listening on port 3007 in development mode
+    Express server listening on port  in development mode
 
 
 # Server configuration

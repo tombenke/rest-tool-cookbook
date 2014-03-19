@@ -29,4 +29,4 @@ environments:
   # production environment specific values
   production:
     port: 3008
-    documentRoot: ../webui/build/crm-api/production
+    documentRoot: ../webui/build/rest-tool-cookbook/examples/crm-api/production

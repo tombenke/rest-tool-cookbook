@@ -12,20 +12,20 @@ describe('{{description}}', function() {
 			.set('Accept', 'application/json')
 			.end(function(err, res) {
 				should.not.exist(err);
-				res.should.have.status(200);
+				res.should.have.status({{response.statusCode}});
 				res.should.have.property('body');
 				// FIXME add further checks if appropriate
-				{{#jsonschema}}
+				{{#response.validationSchema}}
 				var path = require('path');
 				var JaySchema = require('jayschema');
 				var js = new JaySchema(JaySchema.loaders.http);
-				var schema = require(path.join(__dirname, '..', 'schemas', '{{jsonschema}}.json'));
+				var schema = require(path.resolve('{{contentPath}}', '{{response.validationSchema}}'));
 				js.validate(res.body, schema, function(errs) {
 					should.not.exist(errs);
 					done();
 				});
-				{{/jsonschema}}
-				{{^jsonschema}}done();{{/jsonschema}}
+				{{/response.validationSchema}}
+				{{^response.validationSchema}}done();{{/response.validationSchema}}
 			});
 	});
 });
