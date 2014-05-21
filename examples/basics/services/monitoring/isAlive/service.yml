@@ -30,7 +30,6 @@ methods:
                 url: /monitoring/isAlive
                 template: testGetMethod.mustache
                 request:
-                    cookies: []
                     headers:
                         -
                             field: Accept
@@ -40,7 +39,6 @@ methods:
                             content: "gzip, deflate"
                 response:
                     statusCode: 200
-                    cookies: []
                     headers:
                         -
                             field: Content-Type

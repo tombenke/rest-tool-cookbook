@@ -4,7 +4,7 @@ description: |
     which makes possible to monitor that the server is running
     and is able to answer HTTP requests
 style: OPERATION
-urTemplate: /monitoring/isAlive
+uriTemplate: /monitoring/isAlive
 methods:
     GET:
         summary: Is server alive?
@@ -35,8 +35,6 @@ methods:
                 url: /monitoring/isAlive
                 template: testGetMethod.mustache
                 request:
-                    parameters: []
-                    cookies: []
                     headers:
                         -
                             field: Accept
@@ -48,7 +46,6 @@ methods:
                     name: OK
                     statusCode: *OkStatusCode
                     reason: *OkReason
-                    cookies: []
                     headers:
                         -
                             field: Content-Type

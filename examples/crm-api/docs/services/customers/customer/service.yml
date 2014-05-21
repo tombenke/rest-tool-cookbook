@@ -21,7 +21,6 @@ methods:
                 statusCode: &OkStatusCode 200
                 reason: &OkReason Successful execution
                 # validationSchema: getCustomer-responseBody-validationSchema.json
-                cookies: []
                 headers:
                     -
                         field: Content-Type
@@ -34,7 +33,6 @@ methods:
                 url: /customers/1
                 template: testGetMethod.mustache
                 request:
-                    cookies: []
                     headers:
                         -
                             field : "Accept"
@@ -46,7 +44,6 @@ methods:
                     name: OK
                     statusCode: *OkStatusCode
                     reason: *OkReason
-                    cookies: []
                     headers:
                         -
                             field: "Content-Type"
@@ -79,17 +76,10 @@ methods:
                 statusCode: *OkStatusCode
                 reason: *OkReason
                 # validationSchema: deleteCustomer-responseBody-validationSchema.json
-                cookies: []
                 headers:
                     -
                         field: Content-Type
                         content: application/json
-                    -
-                        field: X-Application-Version
-                        content: v0.4 # This value must be parametric
-                    -
-                        field: X-Application-API-Version
-                        content: v0.1 # This value must be parametric
         testCases:
             -
                 name: Delete Customer
@@ -97,7 +87,6 @@ methods:
                 url: /customers/1
                 template: testDelMethod.mustache
                 request:
-                    cookies: []
                     headers:
                         -
                             field : "Accept"
@@ -109,7 +98,6 @@ methods:
                     name: OK
                     statusCode: *OkStatusCode
                     reason: *OkReason
-                    cookies: []
                     headers:
                         -
                             field: "Content-Type"
@@ -141,17 +129,10 @@ methods:
                 statusCode: *OkStatusCode
                 reason: *OkReason
                 # validationSchema: putCustomer-responseBody-validationSchema.json
-                cookies: []
                 headers:
                     -
                         field: Content-Type
                         content: application/json
-                    -
-                        field: X-Application-Version
-                        content: v0.4 # This value must be parametric
-                    -
-                        field: X-Application-API-Version
-                        content: v0.1 # This value must be parametric
                 mockBody: putCustomer-responseBody.json
         testCases:
             -
@@ -160,7 +141,6 @@ methods:
                 url: /customers/1
                 template: testPutMethod.mustache
                 request:
-                    cookies: []
                     headers:
                         -
                             field : "Accept"
@@ -173,7 +153,6 @@ methods:
                     name: OK
                     statusCode: *OkStatusCode
                     reason: *OkReason
-                    cookies: []
                     headers:
                         -
                             field: "Content-Type"

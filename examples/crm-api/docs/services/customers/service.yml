@@ -20,7 +20,6 @@ methods:
                 name: OK
                 statusCode: &OkStatusCode 200
                 reason: &OkReason Successful execution
-                cookies: []
                 headers:
                     -
                         field: Content-Type
@@ -33,7 +32,6 @@ methods:
                 url: /customers
                 template: testGetMethod.mustache
                 request:
-                    cookies: []
                     headers:
                         -
                             field : "Accept"
@@ -45,7 +43,6 @@ methods:
                     name: OK
                     statusCode: *OkStatusCode
                     reason: *OkReason
-                    cookies: []
                     headers:
                         -
                             field: "Content-Type"
@@ -80,7 +77,6 @@ methods:
                 url: /customers
                 template: testPostMethod.mustache
                 request:
-                    cookies: []
                     headers:
                         -
                             field : "Accept"
@@ -93,7 +89,6 @@ methods:
                     name: OK
                     statusCode: *OkStatusCode
                     reason: *OkReason
-                    cookies: []
                     headers:
                         -
                             field: "Content-Type"
