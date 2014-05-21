@@ -74,9 +74,9 @@ test_example () {
     # npm install
 
     # Update the documentation
-    rm -fr test/*
-    $rest_tool_cmd test --update
-
+    # rm -fr test/*
+    $rest_tool_cmd test --update --overwrite
+ 
     # Update the test cases
     $rest_tool_cmd docs --update
 

@@ -1,15 +1,13 @@
 name: Customer service
 description: This is the description of the service to individual customer resources
 style: RESOURCE
-urlPattern: /customers/{id}
+uriTemplate: /customers/{id}
 methods:
     GET:
         summary: Get one customer
         notes: Get one customer
         implementation: api.getCustomer
         request:
-            parameters: []
-            cookies: []
             headers:
                 -
                     field: Accept
@@ -28,12 +26,6 @@ methods:
                     -
                         field: Content-Type
                         content: application/json
-                    -
-                        field: X-Application-Version
-                        content: v0.4 # This value must be parametric
-                    -
-                        field: X-Application-API-Version
-                        content: v0.1 # This value must be parametric
                 # mockBody: getCustomer-responseBody.json
         testCases:
             -
@@ -74,7 +66,6 @@ methods:
                     type: number
                     summary: The id of the customer record to be deleted
                     default: 1
-            cookies: []
             headers:
                 -
                     field: Accept
@@ -137,7 +128,6 @@ methods:
                     type: number
                     summary: The id of the customer record to be updated
                     default: 1
-            cookies: []
             headers:
                 -
                     field: Accept

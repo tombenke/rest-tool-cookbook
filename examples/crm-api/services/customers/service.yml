@@ -1,15 +1,13 @@
 name: Customers service
 description: This is the description of the service to customer collection resources
 style: RESOURCE
-urlPattern: /customers
+uriTemplate: /customers
 methods:
     GET:
         summary: List all the customers
         notes: List all the customers
         implementation: api.getCustomers
         request:
-            parameters: []
-            cookies: []
             headers:
                 -
                     field: Accept
@@ -27,12 +25,6 @@ methods:
                     -
                         field: Content-Type
                         content: application/json
-                    -
-                        field: X-Application-Version
-                        content: v0.4 # This value must be parametric
-                    -
-                        field: X-Application-API-Version
-                        content: v0.1 # This value must be parametric
                 mockBody: getCustomers-responseBody.json
         testCases:
             -
@@ -63,10 +55,7 @@ methods:
     POST:
         summary: Create a new customer
         notes: Create a new customer
-        urlPattern: /customers
         request:
-            parameters: []
-            cookies: []
             headers:
                 -
                     field: Accept
@@ -79,17 +68,10 @@ methods:
                 name: OK
                 statusCode: *OkStatusCode
                 reason: *OkReason
-                cookies: []
                 headers:
                     -
                         field: Content-Type
                         content: application/json
-                    -
-                        field: X-Application-Version
-                        content: v0.4 # This value must be parametric
-                    -
-                        field: X-Application-API-Version
-                        content: v0.1 # This value must be parametric
                 mockBody: postCustomer-responseBody.json
         testCases:
             -
