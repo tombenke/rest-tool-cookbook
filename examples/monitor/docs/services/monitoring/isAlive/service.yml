@@ -20,8 +20,8 @@ methods:
                 -
                     field: Accept-Encoding
                     content: "gzip, deflate"
-            validationSchema: getMonitoringIsAlive-requestBody-validationSchema.json
-            mockBody: getMonitoringIsAlive-requestBody.json
+            # validationSchema: getMonitoringIsAlive-requestBody-validationSchema.json
+            # mockBody: getMonitoringIsAlive-requestBody.json
         responses:
             -
                 name: OK
