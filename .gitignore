@@ -1,3 +1,4 @@
 node_modules
 examples/extjs_crud
-docs
+./docs
+.sass-cache

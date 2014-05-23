@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Get Help to the rest-tool.">
+    <meta name="author" content="Tamás Benke">
+    <meta name="Keywords" content="rest, restful, utility, tools, rest-tool, node.js, api, development" />
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>rest-tool</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron-narrow.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="getStarted.html">Get Started</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
+          <li><a href="http://tombenke.github.io/rest-tool-cookbook/">Examples</a></li>
+          <li><a href="getHelp.html">Get Help</a></li>
+        </ul>
+        <h3 class="text-muted">rest-tool</h3>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-12">
+          <h1 id="rest">REST</h1>
+<h2 id="mdd-patterns-used-in-oops-the-repository-pattern">MDD Patterns used in OOPS / The Repository pattern</h2>
+<p>A <strong>Repository</strong></p>
+<ul>
+<li>acts as a storage place for globally accessible objects.</li>
+<li>sets up access through a well-known global interface.</li>
+<li>is a collection of aggregate roots.</li>
+<li>encapsulates all the logic needed to obtain object references.</li>
+<li>hide the details how to deal with the infrastructure layer</li>
+<li>provides methods to <ul>
+<li>add and remove objects,</li>
+<li>select objects based on some criteria.</li>
+</ul>
+</li>
+<li>returns fully instantiated objects or collections of objects.</li>
+<li>encapsulates the actual storage and query technology</li>
+<li>keep the client focused on the model, 
+delegating all object storage and access to the Repositories.</li>
+</ul>
+<h1 id="what-is-rest-">What is REST?</h1>
+<p>Representational state transfer (REST) is a style of software architecture 
+for distributed hypermedia systems such as the World Wide Web.</p>
+<p>The term introduced and defined by Roy Fielding in his doctoral dissertation:
+<a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm</a></p>
+<p>By Fielding&#39;s PhD thesis, section 6.1 
+the name &quot;Representational State Transfer&quot; is intended to evoke an image of 
+how a well-designed Web application behaves: </p>
+<ul>
+<li>a network of web pages (a virtual state-machine), where</li>
+<li>the user progresses through the application by selecting links (state transitions),</li>
+<li>resulting in the next page (representing the next state of the application)</li>
+<li>being transferred to the user and rendered for their use.</li>
+</ul>
+<h1 id="the-key-goals-of-rest-">The key goals of REST:</h1>
+<ul>
+<li>Scalability of component interactions</li>
+<li>Generality of interfaces</li>
+<li>Independent deployment of components</li>
+<li>Intermediary components to<ul>
+<li>reduce latency,</li>
+<li>enforce security and</li>
+<li>encapsulate legacy systems</li>
+</ul>
+</li>
+</ul>
+<h1 id="the-constraints-of-rest-">The constraints of REST:</h1>
+<p>An architecture that conforms to the following six constraints 
+is generally referred to as being &quot;RESTful&quot;:</p>
+<ul>
+<li>Client–server</li>
+<li>Stateless</li>
+<li>Cacheable</li>
+<li>Layered system</li>
+<li>Code on demand (optional)</li>
+<li>Uniform interface</li>
+</ul>
+<h1 id="restful-web-services-apis-">RESTful web services (APIs)</h1>
+<p>A RESTful web service (also called a RESTful web API) 
+is a simple web service implemented using HTTP and the principles of REST.</p>
+<p>We can take it as a collection of resources that we can manipulate
+through the uniform interface, which provides:</p>
+<ul>
+<li>the base URI for the web service, such as <a href="http://sales.intranet.company.com/contacts/">http://sales.intranet.company.com/contacts/</a></li>
+<li>the hypertext driven API with four operations: GET, PUT, POST, or DELETE</li>
+<li>the representation of resources:<ul>
+<li>can be any valid Internet media type.</li>
+<li>most often: JSON, XML or YAML</li>
+</ul>
+</li>
+</ul>
+<h1 id="couchdb-as-a-restful-document-repository">CouchDB as a RESTful document repository</h1>
+<p>The CouchDB server in principle is a JSON Repository with a RESTful API for
+managing the documents.</p>
+<p>The four fundamental database management functions of a RESTful repository:</p>
+<pre><code>             CRUD operation        HTTP method
+             --------------        -----------
+                Create       &lt;--&gt;     POST
+                Retrieve     &lt;--&gt;     GET
+                Update       &lt;--&gt;     PUT
+                Delete       &lt;--&gt;     DELETE
+</code></pre><h1 id="handling-collections-as-resources">Handling collections as resources</h1>
+<p>Sample collection URI (the set of contact documents): <strong><a href="http://localhost:5984/contacts/">http://localhost:5984/contacts/</a></strong></p>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+  <tr>
+    <th><strong>Method</strong></th>
+    <th><strong>Function</strong></th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><strong>GET</strong></td>
+      <td><strong>List</strong> the URIs and other details of the collection&#39;s members.</td>
+    </tr>
+
+    <tr>
+      <td><strong>PUT</strong></td>
+      <td><strong>Replace</strong> the entire collection with another collection.</td>
+    </tr>
+
+    <tr>
+      <td><strong>POST</strong></td>
+      <td><strong>Create</strong> a new entry in the collection.
+          The new entry&#39;s URL is assigned automatically
+          and is usually returned by the operation.</td>
+    </tr>
+    <tr>
+      <td><strong>DELETE</strong></td>
+      <td><strong>Delete</strong> the entire collection.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="handling-individual-documents-as-resources">Handling individual documents as resources</h1>
+<p>Sample document URI (one contact document): <strong><a href="http://localhost:5984/contacts/tombenke">http://localhost:5984/contacts/tombenke</a></strong></p>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+  <tr>
+    <th><strong>Method</strong></th>
+    <th><strong>Function</strong></th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><strong>GET</strong></td>
+      <td><strong>Retrieve</strong> a representation of the addressed member of the collection, expressed in an appropriate Internet media type.</td>
+    </tr>
+
+    <tr>
+      <td><strong>PUT</strong></td>
+      <td><strong>Replace</strong> the addressed member of the collection, or if it doesn&#39;t exist, <strong>create</strong> it.</td>
+    </tr>
+
+    <tr>
+      <td><strong>POST</strong></td>
+      <td>Treat the addressed member as a collection in its own right and create a new entry in it.</td>
+    </tr>
+
+    <tr>
+      <td><strong>DELETE</strong></td>
+      <td>Delete the addressed member of the collection.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- # The REST API of CouchDB
+
+CouchDB provides the following RESTful HTTP APIs:
+
+- [Database API](http://wiki.apache.org/couchdb/HTTP_database_API)
+  to manage __collections__ as resouces, they also named as __databases__.
+- [Document API](http://wiki.apache.org/couchdb/HTTP_Document_API?action=show&redirect=HttpDocumentApi)
+  to manage individual __documents__ as resouces, they also named as __documents__.
+- [Bulk Document API]()
+  to manage multiple documents in one step.
+- [View API](http://wiki.apache.org/couchdb/HTTP_view_API?action=show&redirect=HttpViewApi)
+  to do querying and reporting on CouchDB databases.
+- [Server API](http://wiki.apache.org/couchdb/Complete_HTTP_API_Reference)
+  to execute server level, special methods like configuration, restart, status retrieval, etc.
+- [Authentication API](http://wiki.apache.org/couchdb/Complete_HTTP_API_Reference)
+  to do cookie authentication.
+
+To learn more on it, study the 
+[Complete HTTP API Reference](http://wiki.apache.org/couchdb/Complete_HTTP_API_Reference).
+-->
+
+<h1 id="__curl__-basics"><strong>curl</strong> basics</h1>
+<p>We will use the <strong>curl</strong> to access to the CouchDB HTTP REST APIs from command line.</p>
+<p>The <strong>curl</strong> is a command line utility for transferring data with URL syntax.
+Can be used --among others-- as a web client.</p>
+<p>The most frequently used parameters are:</p>
+<pre><code>$ curl --help
+Usage: curl [options...] &lt;url&gt;
+Options: (H) means HTTP/HTTPS only, (F) means FTP only
+
+ -d/--data &lt;data&gt;                               HTTP POST data (H)
+    --data-ascii &lt;data&gt;                         HTTP POST ASCII data (H)
+    --data-binary &lt;data&gt;                        HTTP POST binary data (H)
+    --data-urlencode &lt;name=data/name@filename&gt;  HTTP POST data url encoded (H)
+
+ -b/--cookie &lt;name=string/file&gt;  Cookie string or file to read cookies from (H)
+ -c/--cookie-jar &lt;file&gt;          Write cookies to this file after operation (H)
+ -G/--get                        Send the -d data with a HTTP GET (H)
+ -H/--header &lt;line&gt;              Custom header to pass to server (H)
+ -X/--request &lt;command&gt;          Specify request command to use
+    --url &lt;URL&gt;                  Set URL to work with
+ -u/--user &lt;user[:password]&gt;     Set server user and password
+ -v/--verbose                    Make the operation more talkative
+</code></pre><p>for example:</p>
+<pre><code>$ curl http://localhost:5984/
+{&quot;couchdb&quot;:&quot;Welcome&quot;,&quot;version&quot;:&quot;1.0.2&quot;}
+</code></pre><!-- # Talk to the CouchDB server
+
+- __GET \_all\_dbs__ :
+  Get the list of all databases (document collections from the server):
+
+~~~~~~~ {.javascript}
+    $ curl http://localhost:5984/_all_dbs
+    ["_users","orga","survey","cogito","css",
+     "cogito_restore","earl","contacts","oops","cico"]
+~~~~~~~
+
+- __GET /\_uuids__ :
+  Returns a list of generated UUIDs
+
+~~~~~~~ {.javascript}
+    $ curl http://localhost:5984/_uuids
+    {"uuids":["440e9c403dabab12fff5800cd9002f6e"]}
+~~~~~~~
+
+~~~~~~~ {.javascript}
+    $ curl http://localhost:5984/_uuids?count=3
+    {"uuids":[
+        "440e9c403dabab12fff5800cd9003181",
+        "440e9c403dabab12fff5800cd9003e32",
+        "440e9c403dabab12fff5800cd9004068"]}
+~~~~~~~
+
+- __GET /\_config__ :
+  Returns the entire server configuration
+
+- __GET /\_stats__ :
+  Returns server statistics
+
+- __POST /\_replicate__ :
+  Start or cancel [replications](http://wiki.apache.org/couchdb/Replication)
+
+# Create and remove a database
+
+- __PUT /db__ :
+  [Create a new database](http://wiki.apache.org/couchdb/HTTP_database_API#PUT_.28Create_New_Database.29)
+
+~~~~~~~ {.javascript}
+    $ curl -X PUT http://admin:admin@localhost:5984/contacts
+    {"ok":true}
+~~~~~~~
+
+- __DELETE /db__ :
+  [Delete an existing database](http://wiki.apache.org/couchdb/HTTP_database_API#DELETE)
+
+~~~~~~~ {.javascript}
+    curl -X DELETE http://admin:admin@localhost:5984/contacts
+    {"ok":true}
+~~~~~~~
+
+# Get info about a database
+
+- __GET /db__ :
+  [Returns database information](http://wiki.apache.org/couchdb/HTTP_database_API#Database_Information)
+
+~~~~~~~ {.javascript}
+    $ curl http://localhost:5984/contacts
+    {
+        "db_name":"contacts",
+        "doc_count":0,
+        "doc_del_count":0,
+        "update_seq":0,
+        "purge_seq":0,
+        "compact_running":false,
+        "disk_size":79,
+        "instance_start_time":"1331303748004202",
+        "disk_format_version":5,
+        "committed_update_seq":0
+    }
+~~~~~~~
+
+# Q&A
+-->
+
+<!-- ########################################################################### -->
+
+<h1 id="mdd-patterns-used-in-oops-services">MDD Patterns used in OOPS / Services</h1>
+<p><strong>Services</strong></p>
+<ul>
+<li>represent an important behavior of the domain (actions, verbs).</li>
+<li>do not seem to belong to any object.</li>
+<li>are usually built on top of domain Entities and Values providing required functionality directly related to those objects.</li>
+<li>behave like scripts that organize the potential of the domain to actually get something done. </li>
+<li>are stateless</li>
+</ul>
+<p>There are three characteristics of a Service:</p>
+<p>(@) The operation performed by the Service refers to a domain concept which does not naturally belong to an Entity or Value Object.
+(@) The operation performed refers to other objects in the domain.
+(@) The operation is stateless.</p>
+<h1 id="ddd-rest">DDD &amp; REST</h1>
+<ul>
+<li>The web is not our application&#39;s business domain</li>
+<li><p>The web is the document management domain, \
+it is a Document Management System.</p>
+</li>
+<li><p>Resources adapt the the business domain model for the web</p>
+<ul>
+<li>the resources are the documents, and </li>
+<li>the RESTful operations are the actions we can do with them.</li>
+</ul>
+</li>
+<li><p>The business domain: our application code hidden into resources and the services to manage them.</p>
+</li>
+</ul>
+<h1 id="operation-oriented-design">Operation oriented design</h1>
+<p>Single endpoint of operations (does not scale well)</p>
+<p><img src="images/operationOrientedDesign.png" alt=""></p>
+<h1 id="resource-oriented-design">Resource oriented design</h1>
+<ul>
+<li>Aggregates can reference one-another (through URIs)</li>
+<li>Services may provide one source of aggregate roots on the web</li>
+<li>We can have any number of resources but only 4 methods</li>
+</ul>
+<p><img src="images/resourceOrientedDesign.png" alt=""></p>
+<h1 id="consistency">Consistency</h1>
+<h2 id="there-is-no-web-level-total-consistency">There is no web-level total consistency</h2>
+<ul>
+<li>Interaction with resources are stateless</li>
+<li>Race conditions are possible</li>
+</ul>
+<h2 id="the-web-provides-coordination-our-application-is-responsible-for-consistency">The web provides coordination, our application is responsible for consistency</h2>
+<ul>
+<li>Application that drive services keep resource-level aggregates consistent</li>
+<li>To avoid to put resources into inconsistent state use<ul>
+<li><em>If-Unmodified-Since</em> on a timestamp, or</li>
+<li><em>If-Match</em> and an ETag</li>
+</ul>
+</li>
+</ul>
+<h1 id="the-steps-to-create-resource-oriented-services">The steps to create resource oriented services</h1>
+<ol>
+<li>Figure out the data set</li>
+<li>Split the data set into resources</li>
+</ol>
+<p>For each kind of resource:</p>
+<ol>
+<li>Name the resources with URIs</li>
+<li>Expose a subset of the uniform interface</li>
+<li>Design the representation(s) accepted from the client</li>
+<li>Design the representation(s) served to the client</li>
+<li>Integrate this resource into existing resources, using hypermedia links and forms</li>
+<li>Consider the typical course of events: what’s supposed to happen?</li>
+<li>Consider error conditions: what might go wrong?</li>
+</ol>
+<!-- ########################################################################### -->
+# What does the RIA client expect from the server?
+
+A typical RIA framework expects something like this pattern:
+
+
+    {
+        status: <statusCode>,
+        startRow: <startRowNum>,
+        endRow: <endRowNum>,
+        totalRows: <totalRowNum>,
+        data: [
+            {&quot;_id&quot;:&quot;ID-0&quot;, ... },
+            ...
+            {&quot;_id&quot;:&quot;ID-N&quot;, ... }
+        ]
+    }
+
+This is a real data sample:
+
+    { status: 0, startRow: 0, endRow: 3, totalRows: 4, data: [
+    {&quot;_id&quot;:&quot;168049ef22daf76e922ac3b4050035c5&quot;,&quot;_rev&quot;:&quot;3-451178b25ddca023b8165efc5fc22df1&quot;,&quot;type&quot;:&quot;person&quot;,&quot;sex&quot;:&quot;male&quot;,&quot;familyName&quot;:&quot;János&quot;,&quot;surName&quot;:&quot;Kovács&quot;,&quot;isLocal&quot;:&quot;true&quot;,&quot;company&quot;:&quot;MyCo&quot;,&quot;orgUnit&quot;:&quot;MyCompany.PROCUREMENT&quot;,&quot;email&quot;:&quot;janos.kovacs@lhsystems.com&quot;,&quot;mobile&quot;:&quot;&quot;,&quot;phone&quot;:&quot;&quot;,&quot;fax&quot;:&quot;&quot;,&quot;web&quot;:&quot;&quot;,&quot;comment&quot;:&quot;&quot;,&quot;lastUpdate&quot;:&quot;2012-03-08T18:33:10.998Z&quot;},
+    {&quot;_id&quot;:&quot;168049ef22daf76e922ac3b4050044f0&quot;,&quot;_rev&quot;:&quot;2-2fbd5e9fdb5259b1905035bd32aa6772&quot;,&quot;type&quot;:&quot;person&quot;,&quot;sex&quot;:&quot;male&quot;,&quot;familyName&quot;:&quot;james&quot;,&quot;surName&quot;:&quot;Spencer&quot;,&quot;isLocal&quot;:&quot;false&quot;,&quot;company&quot;:&quot;Buyers Ltd.&quot;,&quot;orgUnit&quot;:&quot;Procurement&quot;,&quot;email&quot;:&quot;james.spencer.buyers.com&quot;,&quot;mobile&quot;:&quot;&quot;,&quot;phone&quot;:&quot;&quot;,&quot;fax&quot;:&quot;&quot;,&quot;web&quot;:&quot;&quot;,&quot;comment&quot;:&quot;&quot;,&quot;lastUpdate&quot;:&quot;2012-02-28T07:09:28.212Z&quot;},
+    {&quot;_id&quot;:&quot;5128c38f0bd6258571491deddf002f6a&quot;,&quot;_rev&quot;:&quot;2-6c533db911d4c16f4ebfff1295935f27&quot;,&quot;type&quot;:&quot;person&quot;,&quot;sex&quot;:&quot;male&quot;,&quot;familyName&quot;:&quot;Benke&quot;,&quot;surName&quot;:&quot;Tamás&quot;,&quot;isLocal&quot;:&quot;true&quot;,&quot;company&quot;:&quot;MyCo&quot;,&quot;orgUnit&quot;:&quot;MYCOMPANY.PRODUCTION&quot;,&quot;email&quot;:&quot;tamas.benke@lhsystems.com&quot;,&quot;mobile&quot;:&quot;&quot;,&quot;phone&quot;:&quot;&quot;,&quot;fax&quot;:&quot;&quot;,&quot;web&quot;:&quot;&quot;,&quot;comment&quot;:&quot;Head of Continuous Improvement&quot;,&quot;lastUpdate&quot;:&quot;2012-03-05T12:27:16.994Z&quot;},
+    {&quot;_id&quot;:&quot;5128c38f0bd6258571491deddf003dc6&quot;,&quot;_rev&quot;:&quot;2-ff3b0a36dfd53f3700bdf06d404092e4&quot;,&quot;type&quot;:&quot;person&quot;,&quot;sex&quot;:&quot;male&quot;,&quot;familyName&quot;:&quot;Joe&quot;,&quot;surName&quot;:&quot;Smith&quot;,&quot;isLocal&quot;:&quot;false&quot;,&quot;company&quot;:&quot;Black &amp; White&quot;,&quot;orgUnit&quot;:&quot;MYCOMPANY.R&amp;D&quot;,&quot;email&quot;:&quot;joe.smith@lhsystems.com&quot;,&quot;mobile&quot;:&quot;&quot;,&quot;phone&quot;:&quot;&quot;,&quot;fax&quot;:&quot;&quot;,&quot;web&quot;:&quot;&quot;,&quot;comment&quot;:&quot;&quot;,&quot;lastUpdate&quot;:&quot;2012-03-04T09:56:05.613Z&quot;}] }
+
+# The resources of OOPS
+
+Data repository resources:
+
+<em> Opportunities
+</em> Accounts
+<em> Persons
+
+Special resources:
+
+</em> Forecasted income
+<em> Sales Pipeline
+</em> static pages of the application
+* Diagnostics
+
+<!-- ########################################################################### -->
+
+<h1 id="extjs-intro">ExtJS intro</h1>
+<p><a href="http://www.sencha.com/products/extjs/">ExtJS</a> (previously YUI-Ext) 
+is a JavaScript library for building interactive 
+web applications using techniques such as Ajax, DHTML and DOM scripting.</p>
+<p>It was originally built as an add-on library extension of YUI by Jack Slocum in 2006.</p>
+<p>ExtJS includes interoperability with jQuery and Prototype, but the latest version 
+retains no dependencies on external libraries, instead making their use optional.</p>
+<p><a href="http://www.sencha.com">Sencha</a> On 15 June 2010, the merger of Ext JS with JQTouch and Raphaël 
+was announced forming a new organisation called <a href="http://www.sencha.com">Sencha Inc.</a>. </p>
+<p>ExtJS is a main product of <a href="http://www.sencha.com">Sencha Inc.</a>, together with 
+Sencha Touch, Ext GWT, Ext Designer, Sencha Animator and Ext Core.</p>
+<p>It provides a dual licensing model:</p>
+<ul>
+<li>GPL</li>
+<li>Commercial with support</li>
+</ul>
+<h1 id="resources-you-must-read-during-development">Resources you must read during development</h1>
+<p>The following links are inevitable to continuously keep open and study
+during learning and using ExtJS:</p>
+<ul>
+<li><a href="http://www.sencha.com/products/extjs/">The ExtJS product page</a></li>
+<li><a href="http://docs.sencha.com/ext-js/4-0/#!/example">ExtJS 4 - Examples (source code included)</a></li>
+<li><a href="http://docs.sencha.com/ext-js/4-0/#!/api">ExtJS 4 - API Documentation</a></li>
+<li><a href="http://docs.sencha.com/ext-js/4-0/#!/guide">ExtJS 4 - Guides</a></li>
+</ul>
+<h1 id="the-model-view-controller-pattern-of-extjs">The Model-View-Controller pattern of ExtJS</h1>
+<p>In ExtJS terminology the MVC means the following:</p>
+<ul>
+<li><p><strong>Model</strong>s  connect data to application functionality and UI components.
+They define application data along with their associations and validations.
+A model is a collection of fields and their data 
+(e.g. a User model with username and password fields). \
+Models </p>
+<ul>
+<li>know how to persist themselves through the data package, and</li>
+<li>can be linked to other models through associations. </li>
+<li>are normally used with Stores to present data into grids and other components</li>
+<li>Stores use proxies to communicate with the backend</li>
+</ul>
+</li>
+<li><p>A <strong>View</strong> is any type of visual component: grids, trees, panels, etc.</p>
+</li>
+<li><p><strong>Controller</strong>s are special places to put all of the code that 
+makes the application work whether that&#39;s rendering views, 
+instantiating Models, or any other application logic, usually by responding to events.
+Controllers wire models and views together.</p>
+</li>
+</ul>
+<h1 id="the-cooperation-among-the-mvc-components-of-an-application">The cooperation among the MVC components of an application</h1>
+<p><img src="images/mvc_cooperation.png" alt=""></p>
+<h1 id="the-benefits-of-using-the-mvc-conventions">The benefits of using the MVC conventions</h1>
+<p>Following the conventions unlocks a number of important benefits:</p>
+<ul>
+<li>Every application works the same way so it has to be learned only once</li>
+<li>It&#39;s easy to share code between applications because they all work the same way</li>
+<li>Build tools can be used to create optimized versions of applications 
+for production use</li>
+<li>The application logic can be maintained in one place, but can be used
+through several ways (keyboard shortcuts, mouse, menu commands, etc.)</li>
+<li>There is a homogenous, holistic view on the model.</li>
+<li>Stores and proxies can hide the backends from the front-end logic and views.</li>
+</ul>
+<!-- ########################################################################### -->
+
+
+
+        </div>
+      </div>
+
+      <div class="footer">
+        <p class="copyright">rest-tool is maintained by <a href="https://github.com/tombenke">tombenke</a><br>
+        Theme borrowed from <a href="http://getbootstrap.com/examples/jumbotron-narrow/">Bootstrap</a></p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>
