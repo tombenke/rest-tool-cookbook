@@ -20,13 +20,15 @@ methods:
                 -
                     field: Accept-Encoding
                     content: "gzip, deflate"
+            # validationSchema: getMonitoringIsAlive-requestBody-validationSchema.json
+            # mockBody: getMonitoringIsAlive-requestBody.json
         responses:
             -
                 name: OK
                 statusCode: &OkStatusCode 200
                 reason: &OkReason Successful execution
-                # validationSchema: getMonitoringIsAlive-responseBody-validationSchema.json
-                cookies: []
+                validationSchema: getMonitoringIsAlive-responseBody-validationSchema.json
+                mockBody: getMonitoringIsAlive-responseBody.json
                 headers:
                     -
                         field: Content-Type
@@ -34,7 +36,6 @@ methods:
                     -
                         field: X-Application-API-Version
                         content: v0.0.0
-                # mockBody: getMonitoringIsAlive-responseBody.json
         testCases:
             -
                 name: Get Monitoring Is Alive
@@ -59,7 +60,3 @@ methods:
                         -
                             field: Content-Type
                             content: application/json
-                        -
-                            field: X-Application-API-Version
-                            content: v0.0.0
-                    # validationSchema: getMonitoringIsAlive-responseBody-validationSchema.json
