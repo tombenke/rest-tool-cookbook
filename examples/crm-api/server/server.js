@@ -1,52 +1,39 @@
+#!/usr/bin/env node
 /*jshint node: true */
 "use strict";
 
 var fs = require( 'fs' );
+var path = require( 'path' );
 var express = require( 'express' );
 var request = require( 'request' );
 var api = require('./api.js');
 var monitoring = require('./monitoring.js');
 var services = require('rest-tool-common').services;
-var httpProxy = require('http-proxy');
-var proxy = new httpProxy.RoutingProxy();
+var proxy = require('./proxy');
 
 // Get configured
 var config = {};
 exports.config = config;
 if( process.argv.length >= 3 ) {
-    var baseConfig = require( './config.js' );
+    var baseConfig = require( path.resolve(__dirname, 'config.js'));
     config = baseConfig.setEnvironment( process.argv[2] );
 } else {
-    config = require( './config.js' ).parameters;
+    config = require(path.resolve(__dirname, './config.js')).parameters;
 }
-console.log( config );
+// console.log( config );
 
 // Load services config and service descriptors
-services.load(__dirname + '/' + config.restapiRoot);
+services.load(path.resolve(__dirname, config.restapiRoot));
 var allServices = services.getServices();
 var servicesConfig = services.getConfig();
-console.log('restapi config:', servicesConfig);
-
-function apiProxy(host, port) {
-    return function (req, res, next) {
-        // console.log('apiProxy called to ' + req.host + ' ' + req.ip);
-        if ((req.url.match(new RegExp('^' + servicesConfig.serviceUrlPrefix.replace(/\//gi, '\\/') + '\\/')) ) &&
-            config.useRemoteServices) {
-            console.log('forwarding ' + req.method + ' ' + req.url + ' request to ' + req.method + ' ' + host + ':' + port + req.url + '  from '+ req.host + ' - ' + req.ip);
-            var proxyBuffer = httpProxy.buffer(req);
-            proxy.proxyRequest(req, res, {host: host, port: port, buffer: proxyBuffer});
-        } else {
-            next();
-        }
-    };
-}
+// console.log('rest-tool config:', servicesConfig);
 
 var server = module.exports = express();
 server.set('env', config.environment );
 
 // Configure the middlewares
 server.configure( function() {
-        server.use( apiProxy(config.remoteHost, config.remotePort) );
+        server.use( proxy(servicesConfig.serviceUrlPrefix, config.remoteServices) );
         server.use( express.bodyParser() );
         server.use( express.methodOverride() );
         server.use( express.cookieParser() );
@@ -100,19 +87,19 @@ var defaultServiceCall = function (request, response, serviceDesc) {
     writeResponse(response, services.getMockResponseBody(request.method, serviceDesc ) || serviceDesc);
 };
 
-var reformatUrlPattern = function (urlPattern) {
+var reformatUrlPattern = function (uriTemplate) {
     // TODO: Replace {parameter} to :parameter
-    var resultPattern = urlPattern.replace(/{/gi, ":").replace(/}/gi, "").toString();
+    var resultPattern = uriTemplate.replace(/{/gi, ":").replace(/}/gi, "").toString();
     console.log(resultPattern);
     return resultPattern;
 };
 
 // Setup the services for mocking
 function registerServiceMethod(serviceDesc, method) {
-    console.log('register service ' + method + ' ' + serviceDesc.urlPattern);
+    console.log('register service ' + method + ' ' + serviceDesc.uriTemplate);
     var methodDesc = serviceDesc.methods[method];
     var implementation = eval( serviceDesc.methods[method].implementation ) || defaultServiceCall;
-    server[method.toLowerCase()](servicesConfig.serviceUrlPrefix + reformatUrlPattern(serviceDesc.urlPattern), function(request, response) {
+    server[method.toLowerCase()](servicesConfig.serviceUrlPrefix + reformatUrlPattern(serviceDesc.uriTemplate), function(request, response) {
         implementation(request, response, serviceDesc);
     });
 }

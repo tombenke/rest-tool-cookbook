@@ -11,7 +11,7 @@ environments:
     documentRoot: .
     port: 3007
     restapiRoot: ..
-    useRemoteServices: false
+    remoteServices: []
 
   # Override the default config parameters with values specific to the development environment
   development:
@@ -22,9 +22,12 @@ environments:
   devProxy:
     port: 3006
     documentRoot: ../webui
-    useRemoteServices: true
-    remoteHost: localhost
-    remotePort: 3008
+    remoteServices:
+      -
+        uri: /*
+        active: true
+        host: localhost
+        port: 3008
 
   # production environment specific values
   production:

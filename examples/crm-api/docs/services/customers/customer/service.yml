@@ -6,7 +6,7 @@ methods:
     GET:
         summary: Get one customer
         notes: Get one customer
-        implementation: api.getCustomer
+        # implementation: api.getCustomer
         request:
             headers:
                 -
@@ -20,12 +20,12 @@ methods:
                 name: OK
                 statusCode: &OkStatusCode 200
                 reason: &OkReason Successful execution
-                # validationSchema: getCustomer-responseBody-validationSchema.json
+                validationSchema: getCustomer-responseBody-validationSchema.json
                 headers:
                     -
                         field: Content-Type
                         content: application/json
-                # mockBody: getCustomer-responseBody.json
+                mockBody: getCustomer-responseBody.json
         testCases:
             -
                 name: Get Customer
@@ -53,7 +53,7 @@ methods:
     DELETE:
         summary: Delete a customer
         notes: Delete a customer
-        implementation: api.deleteCustomer
+        # implementation: api.deleteCustomer
         request:
             parameters: 
                 -
@@ -106,7 +106,7 @@ methods:
     PUT:
         summary: Update a customer
         notes: Update a customer
-        implementation: api.putCustomer
+        # implementation: api.putCustomer
         request:
             parameters:
                 -

@@ -1,12 +1,12 @@
 name: Customers service
 description: This is the description of the service to customer collection resources
-style: RESOURCE
+style: COLLECTION
 uriTemplate: /customers
 methods:
     GET:
         summary: List all the customers
         notes: List all the customers
-        implementation: api.getCustomers
+        # implementation: api.getCustomers
         request:
             headers:
                 -
